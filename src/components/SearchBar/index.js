@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Segment, Input } from 'semantic-ui-react';
+import { connect } from 'react-redux';
+import { videoSearch } from '../../store/actions/videoSearch';
 
 class SearchBar extends Component {
 
@@ -7,7 +9,7 @@ class SearchBar extends Component {
         const KEY_ENTER = 13;
         if (e.keyCode === KEY_ENTER) {
             const word = e.target.value;
-            console.log(word);
+            this.props.videoSearch(word);
         }
     }
 
@@ -27,4 +29,12 @@ class SearchBar extends Component {
         );
     };
 }
-export default SearchBar;
+
+// const mapStateToProps =
+const mapDispatchToProps = (dispatch) => {
+    return {
+        videoSearch: (word) => dispatch(videoSearch(word))
+    }
+}
+
+export default connect(null, mapDispatchToProps)(SearchBar);
