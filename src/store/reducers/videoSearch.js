@@ -9,20 +9,21 @@ const searchVideo = (state = INITIAL_STATE, action) => {
     switch (action.type) {
 
         case 'INIT_SEARCH': return {
+            videoList: [],
             loading: true,
-            ...state,
+            error: false
         } 
 
         case 'SEARCH_SUCCESS': return {
             videoList: [...action.videoList],
             loading: false,
-            ...state,
+            error: false,
         }  
 
         case 'SEARCH_ERROR': return {
+            videoList: [],
             loading: false,
             error: false,
-            videoList: []
         }
     
         default: return state;
