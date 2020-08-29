@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { List, Image } from 'semantic-ui-react';
+import { List, Image, Dimmer, Loader } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 
 class VideoList extends Component {
@@ -19,6 +19,11 @@ class VideoList extends Component {
         return (
             <div className="video-list">
                 <List animated verticalAlign="middle">
+                    {this.props.loading && (
+                        <Dimmer active>
+                            <Loader size="medium">loading...</Loader>
+                        </Dimmer>
+                    )}
                    {this.props.videoList.map(video => this.renderVideo(video))}
                 </List>
             </div>
