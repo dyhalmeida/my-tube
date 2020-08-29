@@ -5,7 +5,6 @@ import { connect } from 'react-redux';
 class VideoList extends Component {
 
     renderVideo(video) {
-        console.log(video)
         return (
             <List.Item key={video.id.videoId}>
             <Image src={video.snippet.thumbnails.default.url} />
