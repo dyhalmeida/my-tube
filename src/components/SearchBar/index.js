@@ -5,6 +5,12 @@ import { videoSearch } from '../../store/actions/videoSearch';
 
 class SearchBar extends Component {
 
+    constructor(props) {
+        super(props)
+
+        this.props.videoSearch('Vasco TV');
+    }
+
     searchWord = e => {
         const KEY_ENTER = 13;
         if (e.keyCode === KEY_ENTER) {
