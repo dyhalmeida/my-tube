@@ -8,12 +8,23 @@
 
 .search-bar {
     grid-area: search-bar;
-    background-color: red;
+    /* background-color: red; */
 }
 
 .video-player {
     grid-area: video-player;
-    background-color: blue;
+    background-color: #f0e68c;
+}
+
+.video-player-title {
+    font-weight: 600;
+    color: #468284;
+    padding: 10px;
+}
+
+.video-player-description {
+    padding: 10px;
+    color: #0000cd;
 }
 
 .video-list {
@@ -25,5 +36,6 @@
 .video-item {
     cursor: pointer;
 }
+
 
 
