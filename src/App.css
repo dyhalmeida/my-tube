@@ -18,7 +18,12 @@
 
 .video-list {
     grid-area: video-list;
-    background-color: green;
+    background-color: #fffacd;
+    padding: 15px;
+}
+
+.video-item {
+    cursor: pointer;
 }
 
 

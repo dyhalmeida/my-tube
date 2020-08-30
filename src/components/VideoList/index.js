@@ -1,12 +1,17 @@
 import React, { Component } from 'react';
 import { List, Image, Dimmer, Loader } from 'semantic-ui-react';
 import { connect } from 'react-redux';
+import videoPlayer from '../../store/actions/videoPlayer';
 
 class VideoList extends Component {
 
     renderVideo(video) {
         return (
-            <List.Item key={video.id.videoId}>
+            <List.Item 
+                key={video.id.videoId} 
+                onClick={() => this.props.handleVideoPlayer(video)}
+                className="video-item"
+            >
             <Image src={video.snippet.thumbnails.default.url} />
                 <List.Content>
                 <List.Header>{video.snippet.title}</List.Header>
@@ -31,6 +36,12 @@ class VideoList extends Component {
     }
 }
 
+const mapDispatchToProps = (dispatch) => {
+    return {
+        handleVideoPlayer: (video) => dispatch(videoPlayer(video))
+    }
+}
+
 const mapStateToProps = (state) => {
     const { videoList, loading, error } = state.videoSearch;
     return {
@@ -40,4 +51,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps, null)(VideoList);
+export default connect(mapStateToProps, mapDispatchToProps)(VideoList);
